@@ -72,13 +72,13 @@ def dados_aluno():
         print("False")
         return "", "", "", "", "", "", "", "", "", "", verificacao
     elif verificacao is True:
-        print("True")
+
         nome_aluno = dados["nome_aluno"]
         data_solicitacao = dados["data_solicitacao"]
         hora_ini = dados["hora_ini"]
         hora_fim = dados["hora_fim"]
         status_acesso = dados["status_acesso"]
-
+        print("True")
         if status_acesso == -1:
             permissao = "Negado"
         else:

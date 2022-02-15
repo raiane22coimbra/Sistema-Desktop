@@ -42,7 +42,6 @@ def solicita_dados(token: str = None, n_matricula: str = None):
 
         for i in lista:
             if n_matricula in i.values():
-                print()
                 verificacao = True
                 data = i
 

@@ -30,7 +30,7 @@ class sis_qr_code(QMainWindow):
     def __init__(self):
 
         super(sis_qr_code, self).__init__()
-        self.window = loadUi("leitor_qr.ui", self)
+        self.window = loadUi("leitor_qr_Copia.ui", self)
         self.logic = 0
         self.value = 0
         # BOTÃO QUE ABRE A CÂMERA
@@ -119,6 +119,7 @@ class sis_qr_code(QMainWindow):
                         hora_fim,
                         verificacao,
                     ) = dados_aluno()
+                    print(dados_aluno())
 
                     if verificacao is False:
 
@@ -138,16 +139,15 @@ class sis_qr_code(QMainWindow):
                         self.window.regi_saida.close()
 
                     elif verificacao is True:
-                        resposta, h_saida = ponto(util.matricula, util.token)
+                        resposta,nome, h_saida = ponto(util.matricula, util.token)
                         quantidade, fabricante, error = verifica_vacinacao(
                             util.token, util.matricula
                         )
-                        if "astrazeneca" in fabricante.lower:
-                            fabricante = "astrazeneca"
+                        print(quantidade, fabricante, error)
+
                         if error is True:
                             pass
                         else:
-
                             self.window.regi_saida.show()
                             self.text_saida.setText(error)
                             self.text_saida.setStyleSheet(
@@ -166,6 +166,7 @@ class sis_qr_code(QMainWindow):
                             self.logic = 0
                             self.window.CAPA.show()
 
+                        print('gddfhf')
                         if resposta is False:
                             if abertura == 1 or abertura == 2:
                                 self.window.regi_saida.close()
